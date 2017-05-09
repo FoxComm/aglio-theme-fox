@@ -1,0 +1,9 @@
+{
+  "name": "aglio-theme-fox",
+  "version": "0.0.1",
+  "description": "Aglio theme that's specific to FoxCommerce",
+  "main": "theme.js",
+  "repository": "https://github.com/FoxComm/aglio-theme-fox.git",
+  "author": "Jeff Mataya",
+  "license": "MIT"
+}
