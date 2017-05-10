@@ -26,8 +26,6 @@ mixin Nav()
         if self.api.navItems && self.api.navItems.length
             .resource-group
                 .heading
-                  .chevron
-                    i.open.fa.fa-angle-down
                   a(href='#top') Overview
                 .collapse-content
                   ul: each item in self.api.navItems
@@ -36,8 +34,6 @@ mixin Nav()
         each resourceGroup in self.api.resourceGroups || []
             .resource-group
                 .heading
-                  .chevron
-                    i.open.fa.fa-angle-down
                   a(href=resourceGroup.elementLink)!= resourceGroup.name || 'Resource Group'
                 .collapse-content
                   ul
@@ -57,11 +53,6 @@ mixin Nav()
                               a(href=action.elementLink)
                                   +Badge(action.method)
                                   != action.name || resource.name || action.method + ' ' + (action.attributes && action.attributes.uriTemplate || resource.uriTemplate)
-        //- Link to the API hostname, e.g. api.yourcompany.com
-        each meta in self.api.metadata || {}
-            if meta.name == 'HOST'
-                p(style="text-align: center; word-wrap: break-word;")
-                    a(href=meta.value)= meta.value
 
 mixin Parameters(params)
     //- Draw a definition list of parameter names, types, defaults,
