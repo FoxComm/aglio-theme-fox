@@ -502,8 +502,14 @@ exports.render = (input, options, done) ->
     options.themeTemplate = path.join ROOT, 'templates', 'index.jade'
 
   # Options for parsing content
-  contentOptions =
-    marker: '!'
+  rowOptions =
+    marker: '-'
+  
+  leftOptions =
+    marker: '<'
+
+  rightOptions =
+    marker: '>'
 
   # Setup markdown with code highlighting and smartypants. This also enables
   # automatically inserting permalinks for headers.
@@ -522,9 +528,9 @@ exports.render = (input, options, done) ->
     permalink: true
     permalinkClass: 'permalink'
   ).use(require('markdown-it-checkbox')
-  ).use(require('markdown-it-container'), 'summary', contentOptions
-  ).use(require('markdown-it-container'), 'main'
-  ).use(require('markdown-it-container'), 'example'
+  ).use(require('markdown-it-container'), 'row', rowOptions
+  ).use(require('markdown-it-container'), 'left', leftOptions
+  ).use(require('markdown-it-container'), 'right', rightOptions
   ).use(require('markdown-it-container'), 'note'
   ).use(require('markdown-it-container'), 'warning')
 
