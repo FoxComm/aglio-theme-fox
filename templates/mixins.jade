@@ -34,6 +34,8 @@ mixin Nav()
         each resourceGroup in self.api.resourceGroups || []
             .resource-group
                 .heading
+                  .chevron
+                    i.open.fa.fa-angle-down
                   a(href=resourceGroup.elementLink)!= resourceGroup.name || 'Resource Group'
                 .collapse-content
                   ul
@@ -222,6 +224,21 @@ mixin ContentTriple()
                         a.permalink(href=resource.elementLink) &para;
                     if resource.description
                         != self.markdown(resource.description)
+                    if resource.model
+                        if resource.model.schema
+                            .attributes
+                                .title!= 'attributes'
+                                table.attributes-table
+                                    each prop in self.parse(resource.model.schema)
+                                        tr
+                                            td.attribute
+                                                .name!= prop.name
+                                                .type
+                                                    != prop.definition.type
+                                                    if !prop.definition.required
+                                                        != ', optional'
+                                            td.definition
+                                                != prop.definition.description
 
             each action in resource.actions || []
                 if action.examples

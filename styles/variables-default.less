@@ -69,11 +69,18 @@
 /* HTTP method-specific colors */
 
 /* HTTP GET */
-@get-color: darken(@link-color, 6.5%);
-@get-background-color: #d9edf7;
-@get-text-color: contrast(@get-background-color);
-@get-badge-text-color: darken(@get-background-color, 25%);
-@get-border-color: darken(spin(@get-background-color, -10), 7%);
+// @get-color: darken(@link-color, 6.5%);
+// @get-background-color: #d9edf7;
+// @get-text-color: contrast(@get-background-color);
+// @get-badge-text-color: darken(@get-background-color, 25%);
+// @get-border-color: darken(spin(@get-background-color, -10), 7%);
+@get-color: #484848;
+@get-label-color: #fff;
+@get-background-color: #484848;
+@get-text-color: #484848;
+@get-badge-text-color: #D9D9D9;
+@get-border-color: #484848;
+
 
 /* HTTP HEAD */
 @head-color: @get-color;
@@ -90,32 +97,35 @@
 @options-border-color: @get-border-color;
 
 /* HTTP PUT */
-@put-color: darken(#f0ad4e, 8%);
-@put-background-color: #fcf8e3;
-@put-text-color: contrast(@put-background-color);
-@put-badge-text-color: darken(@put-background-color, 25%);
-@put-border-color: darken(spin(@put-background-color, -10), 5%);
+@put-color: #FFBB3C;
+@put-background-color: #FFBB3C;
+@put-text-color: #FFBB3C;
+@put-badge-text-color: #FFDD7F;
+@put-border-color: #FFBB3C;
 
 /* HTTP PATCH */
-@patch-color: @put-color;
-@patch-background-color: @put-background-color;
-@patch-text-color: @put-text-color;
-@patch-badge-text-color: @put-badge-text-color;
-@patch-border-color: @put-border-color;
+@patch-color: #FFBB3C;
+@patch-background-color: #FFBB3C;
+@patch-text-color: #FFBB3C;
+@patch-badge-text-color: #FFDD7F;
+@patch-border-color: #FFBB3C;
 
 /* HTTP POST */
-@post-color: #5cb85c;
-@post-background-color: #dff0d8;
-@post-text-color: contrast(@post-background-color);
-@post-badge-text-color: darken(@post-background-color, 25%);
-@post-border-color: darken(spin(@post-background-color, -10), 5%);
+@post-color: #4fc2c9;
+@post-label-color: #fff;
+@post-background-color: #4fc2c9;
+@post-text-color: #4fc2c9;
+@post-badge-text-color: #A0E9ED;
+@post-border-color: #4fc2c9;
+
 
 /* HTTP DELETE */
-@delete-color: #d9534f;
-@delete-background-color: #f2dede;
+@delete-color: #F45758;
+@delete-background-color: #F45758;
+@delete-label-color: #FFFFFF;
 @delete-text-color: contrast(@delete-background-color);
-@delete-badge-text-color: darken(@delete-background-color, 25%);
-@delete-border-color: darken(spin(@delete-background-color, -10), 5%);
+@delete-badge-text-color: #FF9796;
+@delete-border-color: @delete-background-color;
 
 /* Code colors */
 @inline-code-background-color: #f5f5f5;

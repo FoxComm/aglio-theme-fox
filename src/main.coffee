@@ -16,6 +16,14 @@ ROOT = path.dirname __dirname
 
 cache = {}
 
+# Extract the set of properties from a schema
+schemaProps = (schema) ->
+  schemaObj = JSON.parse schema
+  props = for key, defn of schemaObj.properties
+    required = key in schemaObj.required
+    { name: key, definition: defn, required: required }
+
+
 # Utility for benchmarking
 benchmark =
   start: (message) -> if process.env.BENCHMARK then console.time message
@@ -504,7 +512,7 @@ exports.render = (input, options, done) ->
   # Options for parsing content
   rowOptions =
     marker: '-'
-  
+
   leftOptions =
     marker: '<'
 
@@ -559,6 +567,7 @@ exports.render = (input, options, done) ->
         crypto.createHash('md5').update(value.toString()).digest('hex')
       highlight: highlight
       markdown: (content) -> md.render content
+      parse: (content) -> schemaProps content
       slug: slug.bind(slug, slugCache)
       urldec: (value) -> querystring.unescape(value)
 

@@ -161,10 +161,6 @@ table {
   border-spacing: 0;
   margin-bottom: @padding;
 
-  tr:nth-child(2n) {
-    background-color: @table-row-background-color;
-  }
-
   th, td {
     padding: @padding/2 @padding;
     border: 1px solid @table-border-color;
@@ -316,16 +312,19 @@ nav {
 }
 
 .badge {
-    display: inline-block;
+    display: flex;
     float: right;
     min-width: 10px;
     min-height: @font-size;
-    padding: 3px 7px;
     font-size: 12px;
     color: @group-text-color;
     background-color: @group-title-background-color;
     border-radius: 10px;
     margin: @badge-margin;
+    height: 24px;
+    width: 24px;
+    justify-content: center;
+    align-items: center;
 
     &.get {
       color: @get-badge-text-color;
@@ -670,7 +669,13 @@ nav {
     padding: @group-padding;
     margin-bottom: @padding;
 
-    h2.group-heading, .heading a {
+    h2.group-heading {
+      padding-left: 0;
+        border-top: 1px solid @group-border-color;
+        width: 100%;
+    }
+
+    .heading a {
         font-size: 12px;
         font-weight: 400;
         line-height: 18px;
@@ -687,13 +692,32 @@ nav {
 
 .triple .content .resource-group {
     padding: 0;
+    padding-left: 25px;
     border: none;
 
-    h2.group-heading, .heading a {
+    h2.group-heading {
+        border-top: 1px solid @group-border-color;
+    }
+
+    .heading a {
         margin: 0 0 @padding 0;
         border: 1px solid @group-border-color;
     }
+
 }
+
+.triple .content {
+    .resource {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+    .action {
+      margin-top: 25px;
+      margin-left: 25px;
+      margin-right: 25px;
+    }
+  }
 
 nav .resource-group{
   .heading a {
@@ -718,8 +742,6 @@ nav .resource-group{
         padding: @padding / 2 @padding;
         margin: -@padding -@padding @padding -@padding;
         border-bottom: 1px solid transparent;
-        border-top-left-radius: @border-radius;
-        border-top-right-radius: @border-radius;
         overflow: hidden;
 
         .name {
@@ -735,7 +757,7 @@ nav .resource-group{
             display: inline-block;
 
             &.get {
-                color: contrast(@get-color);
+                color: #FFF;
                 background-color: @get-color;
             }
 
@@ -795,7 +817,7 @@ nav .resource-group{
         border-color: @get-border-color;
 
         h4.action-heading {
-            color: @get-color;
+            color: @get-label-color;
             background: @get-background-color;
             border-bottom-color: @get-border-color;
         }
@@ -825,7 +847,7 @@ nav .resource-group{
         border-color: @post-border-color;
 
         h4.action-heading {
-            color: @post-color;
+            color: #000;
             background: @post-background-color;
             border-bottom-color: @post-border-color;
         }
@@ -835,7 +857,7 @@ nav .resource-group{
         border-color: @put-border-color;
 
         h4.action-heading {
-            color: @put-color;
+            color: #000000;
             background: @put-background-color;
             border-bottom-color: @put-border-color;
         }
@@ -845,7 +867,7 @@ nav .resource-group{
         border-color: @patch-border-color;
 
         h4.action-heading {
-            color: @patch-color;
+            color: #000000;
             background: @patch-background-color;
             border-bottom-color: @patch-border-color;
         }
@@ -855,7 +877,7 @@ nav .resource-group{
         border-color: @delete-border-color;
 
         h4.action-heading {
-            color: @delete-color;
+            color: @delete-label-color;
             background: @delete-background-color;
             border-bottom-color: @delete-border-color;
         }
@@ -892,4 +914,36 @@ nav .resource-group{
 
 .eimg {
     width: 100%;
+}
+
+.attributes-table {
+    border: none;
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    width: 100%;
+
+    tr:nth-child(2n) {
+      background-color: none;
+    }
+
+    .attribute, .definition {
+        border: none;
+        border-top: 1px solid #f2f2f2;
+        border-bottom: 1px solid #f2f2f2;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .attribute {
+      text-align: right;
+      width: 180px;
+    }
+
+    .definition {
+      vertical-align: text-top;
+    }
+
+    .type {
+      color: #939da3;
+    }
 }
