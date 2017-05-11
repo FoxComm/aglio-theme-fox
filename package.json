@@ -1,6 +1,6 @@
 {
   "name": "aglio-theme-fox",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Theme for the FoxCommerce API documents",
   "main": "lib/main.js",
   "scripts": {
