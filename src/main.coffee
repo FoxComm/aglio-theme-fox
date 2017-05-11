@@ -20,7 +20,9 @@ cache = {}
 schemaProps = (schema) ->
   schemaObj = JSON.parse schema
   props = for key, defn of schemaObj.properties
-    required = key in schemaObj.required
+    required = false
+    if schemaObj.required
+      required = key in schemaObj.required
     { name: key, definition: defn, required: required }
 
 
