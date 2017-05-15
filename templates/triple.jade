@@ -7,8 +7,15 @@ html
         meta(charset="utf-8")
         title= self.api.name || 'API Documentation'
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
+        script(src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js")
+        script(src="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.js")
+        link(rel="stylesheet", href="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.css")
+        script(src="/assets/firebase-init.js")
+        script(src="/assets/firebase-login.js")
+        script(src="/assets/firebase-check-login.js")
         style!= self.css
     body.preload
+
         #nav-background
         div.container-fluid.triple
             .row
@@ -28,7 +35,6 @@ html
                             | &nbsp;on #{self.date().format('DD MMM YYYY')}
 
         script: include scripts.js
-
         if self.livePreview
             script(src="/socket.io/socket.io.js")
             script.
